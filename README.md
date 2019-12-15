@@ -24,4 +24,9 @@ After deployment please assign the Permission Set **CV App Permissions** to your
 
 You can start using the App by selecting **CV App** from the App Menu and then navigating to the **My CV** Tab.
 
-Watch the quick video to learn how you can set this up in less than 5 mins.
+Watch this quick video to learn how you can set this up in less than 5 mins.
+
+## ⚠️ Points to Remember
+1.  Please ensure that **My Domain** has been enabled in your Developer Edition (DE) org.
+2.  It's always recommended to sign-up for a *new DE* (http://developer.salesforce.com/signup), *enable My Domain* and then use the *Deploy to Salesforce* button.
+3.  If the **GitHub Salesforce Deploy Tool** shows an error, please repeat by clicking the *Deploy to Salesforce* button again. 
