@@ -42,4 +42,4 @@ For any support or help, please shoot me an email at **shruti.sridharan22@gmail.
 
 
 ## 🔗 Share
-Feel free to share - [Click to Tweet it!](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fshrutis22%2Flwc-cv-app&text=Check%20out%20this%20app%20built%20by%20@shruti4chess%20that%20let%27s%20you%20to%20create%20a%20Resume%20in%20%23Salesforce%20using%20Lightning%20Web%20Components.&hashtags=%23LWC)
+Feel free to share - [Click to Tweet it!](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fshrutis22%2Flwc-cv-app&text=Check%20out%20this%20app%20built%20by%20@shruti4chess%20that%20let%27s%20you%20to%20create%20a%20Resume%20in%20%23Salesforce%20using%20Lightning%20Web%20Components.&hashtags=LWC)
