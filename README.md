@@ -29,7 +29,7 @@ After deployment please assign the Permission Set **CV App Permissions** to your
 
 You can start using the App by selecting **CV App** from the App Menu and then navigating to the **My CV** Tab.
 
-Watch this quick video to learn how you can set this up in less than 6 mins - [View Video Tutorial](https://drive.google.com/file/d/1MRP_yvNMVERCJcgh5ZFsZOwu8MQSko2f/view?usp=sharing)
+Watch this quick video to learn how you can set this up in less than 6 mins - [View Video Tutorial](https://www.youtube.com/watch?v=oOqesuWHyRA&vq=hd720)
 
 
 ## ⚠️ Points to Remember
