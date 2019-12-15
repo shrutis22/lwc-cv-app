@@ -1,6 +1,7 @@
 # 📝 CV App / Lightning Resume
 A suite of **Lightning Web Components** ⚡ to build a Resume inside of Salesforce.
 
+[**View on GitHub**](https://github.com/shrutis22/lwc-cv-app)
 
 ## ❔ What does this App do ?
 This app let's you to create a fancy CV / Resume using rich **Lightning Web Components**.
