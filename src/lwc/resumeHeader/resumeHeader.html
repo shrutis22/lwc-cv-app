@@ -1,0 +1,52 @@
+<template>    
+    <template if:false={status.hasError}>
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="action:description" 
+                                            alternative-text="CV" 
+                                            size="small"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" 
+                                              title={contact.name}>
+                                            {contact.name}
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <p class="slds-page-header__name-meta">
+                                {contact.title}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-page-header__col-actions" if:true={showActions}>
+                    <lightning-button label="Edit"
+                                      onclick={handleEdit}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center slds-p-around_small" if:true={status.errorIs404}>
+            <lightning-button label="Looks like there isn't a valid Contact created yet. Click to load sample data."
+                              variant="neutral"
+                              onclick={load}></lightning-button>
+        </div>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

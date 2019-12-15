@@ -1,0 +1,37 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="Work Experiences"
+                        icon-name="standard:account"
+                        variant="base">
+            <div class="slds-p-around_small">
+                <div class="slds-progress slds-progress_vertical slds-m-around_x-small">
+                    <ol class="slds-progress__list">
+                        <template iterator:it={experiences}>
+                            <c-work-exp key={it.value.Id}
+                                        first={it.first}
+                                        designation={it.value.Name}
+                                        company={it.value.Company__c}
+                                        duration={it.value.Duration__c}
+                                        responsibilities={it.value.Responsibilities__c}></c-work-exp>
+                        </template>
+                    </ol>
+                </div>
+            </div>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

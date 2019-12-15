@@ -1,0 +1,44 @@
+<template>
+    <template if:false={status.hasError}>
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:people" 
+                                        alternative-text="Profile" 
+                                        size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            Profile
+                        </h2>
+                    </div>
+                    <template if:true={showActions}>
+                        <div class="slds-no-flex">
+                            <lightning-button label="Edit"
+                                              onclick={handleEdit}></lightning-button>
+                        </div>
+                    </template>
+                </header>
+            </div>
+            <div class="slds-card__body-no-margin">
+                <div class="slds-illustration slds-illustration_small slds-p-vertical_small">
+                    <img src={contact.photoURL} />
+                </div>
+                <div class="slds-text-body_regular slds-theme_shade slds-p-around_small">
+                    {contact.profile}
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

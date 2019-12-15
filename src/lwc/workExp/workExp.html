@@ -1,0 +1,42 @@
+<template>
+    <li class={applyActiveIfFirst}>
+        <div class="slds-progress__marker"></div>
+        <div class="slds-progress__item_content">
+            <div class="slds-m-bottom_xxx-small slds-p-top_small slds-border_top slds-text-heading_small">
+                <strong>{designation}</strong>
+            </div>
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:checkin"
+                                    size="x-small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    {company}
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse"></div>
+            </div>
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:date_input"
+                                    size="x-small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    {duration}
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse"></div>
+            </div>
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:list"
+                                    size="x-small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <lightning-formatted-rich-text value={responsibilities}>
+                    </lightning-formatted-rich-text>
+                </div>
+                <div class="slds-media__figure slds-media__figure_reverse"></div>
+            </div>
+        </div>
+        <div class="slds-progress__connector"></div>
+    </li>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-media slds-m-top_x-small slds-timeline__item_expandable">
+        <div class="slds-media__figure">
+            <lightning-icon class="slds-m-left_large slds-timeline__icon"
+                            icon-name={awardIcon} size="small">
+            </lightning-icon>
+        </div>
+        <div class="slds-media__body">
+            <lightning-layout horizontal-align="spread" vertical-align="center">
+                <lightning-layout-item>
+                    <div class="slds-text-heading_small">
+                        <strong>{awardTitle}</strong>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-timeline__date">
+                <div class="slds-text-title">
+                    {awardSubtitle}
+                </div>
+            </div>
+        </div>
+        <div class="slds-media__figure slds-media__figure_reverse"></div>
+    </div>
+</template>

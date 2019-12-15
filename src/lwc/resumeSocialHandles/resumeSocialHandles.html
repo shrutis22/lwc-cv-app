@@ -1,0 +1,42 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="Social Handles"
+                        icon-name="standard:social"
+                        variant="narrow">
+            <p class="slds-p-horizontal_medium">
+                <template for:each={socialHandles} for:item="handle">
+                    <lightning-layout key={handle.Id}>
+                        <lightning-layout-item size="2" padding="around-small">
+                            <img src={handle.Handle_Icon__c} height="32px" width="32px" />
+                        </lightning-layout-item>
+                        <lightning-layout-item size="10" padding="around-small">
+                            <div class="slds-text-heading_small">
+                                <a href={handle.Handle_Link__c} target="_blank">
+                                    {handle.Handle_Link__c}
+                                </a>
+                            </div>
+                            <div class="slds-text-body_small">
+                                {handle.Name}
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </p>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

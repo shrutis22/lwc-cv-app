@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Formatted_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(MailingStreet)),     MailingStreet + &apos;, &apos;,       NULL) +
+IF(NOT(ISBLANK(MailingCity)),       MailingCity + &apos;, &apos;,         NULL) +
+IF(NOT(ISBLANK(MailingState)),      MailingState + &apos; &apos;,         NULL) +
+IF(NOT(ISBLANK(MailingPostalCode)), MailingPostalCode + &apos;, &apos;,   NULL) +
+IF(NOT(ISBLANK(MailingCountry)),    MailingCountry,             NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Formatted Address</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Photo_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Photo URL</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Photo__c</fullName>
+        <externalId>false</externalId>
+        <label>Photo</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Profile__c</fullName>
+        <externalId>false</externalId>
+        <label>Profile</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Total_Trailhead_Badges__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Trailhead Badges</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UID__c</fullName>
+        <externalId>true</externalId>
+        <label>UID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

@@ -1,0 +1,7 @@
+.slds-progress__connector {
+    position: absolute;
+    left: calc(0.5rem - 1px);
+    width: 2px;
+    height: 95%;
+    background-color: #dddbda;
+}

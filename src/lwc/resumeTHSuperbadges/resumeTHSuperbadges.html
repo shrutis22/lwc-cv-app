@@ -1,0 +1,36 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card variant="narrow">
+            <div class="slds-p-around_small">
+                <lightning-formatted-rich-text value={superbadge.Superbadge_Image__c}>
+                </lightning-formatted-rich-text>
+                <div class="slds-text-heading_small slds-m-top_small">
+                    Favourite Superbadge
+                </div>
+                <div class="slds-text-heading_large slds-m-top_small">
+                    <a href={superbadge.Superbadge_Link__c} target="_blank">
+                        <strong>{superbadge.Name}</strong>
+                    </a>
+                </div>
+                <div class="slds-text-heading_medium">
+                    {superbadge.Superbadge_Description__c}
+                </div>
+            </div>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

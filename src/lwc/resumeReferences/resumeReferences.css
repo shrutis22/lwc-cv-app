@@ -1,0 +1,6 @@
+img {
+    border-radius: 100%;
+    box-shadow: 0 0 5px rgb(201, 199, 197);
+    height: auto;
+    width: 50px;
+}

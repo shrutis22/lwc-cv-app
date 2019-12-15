@@ -1,0 +1,50 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="References"
+                        icon-name="standard:queue"
+                        variant="narrow">
+            <div class="slds-p-around_small">
+                <template for:each={references} for:item="reference">
+                    <lightning-layout   multiple-rows="true"
+                                        key={reference.key}>
+                        <lightning-layout-item  size="2"
+                                                padding="around-small">
+                            <img src={reference.Photo_URL__c} />
+                        </lightning-layout-item>
+                        <lightning-layout-item  size="8"
+                                                padding="around-small">
+                            <div class="slds-text-heading_medium">
+                                <a href={reference.MailTo__c} target="_blank">
+                                    {reference.Name}
+                                </a>
+                            </div>
+                            <div class="slds-text-heading_small">
+                                {reference.Company__c}
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item  size="2" 
+                                                padding="around-small" 
+                                                alignment-bump="right">
+                            {reference.Relationship__c}
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </div>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

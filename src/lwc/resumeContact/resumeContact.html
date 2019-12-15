@@ -1,0 +1,52 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="Contact"
+                        icon-name="standard:call"
+                        variant="narrow">
+            <p class="slds-p-horizontal_medium">
+                <lightning-layout>
+                    <lightning-layout-item size="1" padding="around-small">
+                        <lightning-icon icon-name="utility:checkin"
+                                        size="x-small"></lightning-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" padding="around-small">
+                        {contact.address}
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="1" padding="around-small">
+                        <lightning-icon icon-name="utility:email"
+                                        size="x-small"></lightning-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" padding="around-small">
+                        {contact.email}
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="1" padding="around-small">
+                        <lightning-icon icon-name="utility:dialing"
+                                        size="x-small"></lightning-icon>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" padding="around-small">
+                        {contact.phone}
+                    </lightning-layout-item>
+                </lightning-layout>
+            </p>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

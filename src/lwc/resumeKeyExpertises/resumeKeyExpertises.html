@@ -1,0 +1,34 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="Key Expertises"
+                        icon-name="standard:skill"
+                        variant="narrow">
+            <lightning-layout multiple-rows="true">
+                <template for:each={keyExpertises} for:item="exp">
+                    <lightning-layout-item  key={exp.Id}
+                                            size="6"
+                                            padding="around-small"
+                                            class="slds-text-align_center">
+                        <c-progress-circle  value={exp.Score__c}
+                                            label={exp.Name}></c-progress-circle>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

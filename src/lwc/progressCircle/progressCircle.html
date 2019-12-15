@@ -1,0 +1,29 @@
+<template>
+    <svg class="progress"
+         width="90"
+         height="90">
+         
+        <circle class="progress__meter"
+                cx="45"
+                cy="45"
+                r="35"
+                stroke-width="12"></circle>
+
+        <circle class="progress__value"
+                cx="45"
+                cy="45"
+                r="35"
+                stroke-width="12"></circle>
+
+        <text   class="progress__value-text"
+                x="50%"
+                y="-45%"
+                text-anchor="middle">
+            {value}
+        </text>
+    </svg>
+
+    <div class="slds-text-heading_small slds-m-top_small">
+        {label}
+    </div>
+</template>

@@ -1,0 +1,35 @@
+<template>
+    <template if:false={status.hasError}>
+        <lightning-card title="Certifications / Trailhead"
+                        icon-name="standard:reward"
+                        variant="base">
+            <div class="slds-p-around_small">
+                <template for:each={certifications} for:item="cert">
+                    <c-award key={cert.key}
+                            award-icon="utility:salesforce1"
+                            award-title={cert.Name}
+                            award-subtitle={cert.Release__c}></c-award>
+                </template>
+
+                <c-award award-icon="utility:trailhead"
+                        award-title="Trailhead"
+                        award-subtitle={totalTrailheadBadges}></c-award>
+            </div>
+            <template if:true={showActions}>
+                <lightning-button label="Edit"
+                                  slot="actions"
+                                  onclick={handleEdit}></lightning-button>
+            </template>
+        </lightning-card>
+    </template>
+
+    <template if:true={status.hasError}>
+        <c-error message={status.errorMessage}></c-error>
+
+        <div class="slds-text-align_center" if:true={status.errorIs406}>
+            <lightning-button label="Fix it!"
+                              variant="base"
+                              onclick={handleEdit}></lightning-button>
+        </div>
+    </template>
+</template>

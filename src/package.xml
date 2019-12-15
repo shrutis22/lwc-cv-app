@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CV App</fullName>
+    <types>
+        <members>CVAppContactPicklist</members>
+        <members>ResumeAPI</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CV_App_Lightning</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Certification__c.Contact__c</members>
+        <members>Certification__c.Order__c</members>
+        <members>Certification__c.Release__c</members>
+        <members>Competency__c.Contact__c</members>
+        <members>Competency__c.Score__c</members>
+        <members>Contact.Formatted_Address__c</members>
+        <members>Contact.Photo_URL__c</members>
+        <members>Contact.Photo__c</members>
+        <members>Contact.Profile__c</members>
+        <members>Contact.Total_Trailhead_Badges__c</members>
+        <members>Contact.UID__c</members>
+        <members>Education__c.Contact__c</members>
+        <members>Education__c.Duration__c</members>
+        <members>Education__c.GPA__c</members>
+        <members>Education__c.Order__c</members>
+        <members>Education__c.School_Name__c</members>
+        <members>Key_Expertise__c.Contact__c</members>
+        <members>Key_Expertise__c.Score__c</members>
+        <members>Reference__c.Company__c</members>
+        <members>Reference__c.Contact__c</members>
+        <members>Reference__c.Email__c</members>
+        <members>Reference__c.MailTo__c</members>
+        <members>Reference__c.Photo_URL__c</members>
+        <members>Reference__c.Photo__c</members>
+        <members>Reference__c.Relationship__c</members>
+        <members>Social_Handle__c.Contact__c</members>
+        <members>Social_Handle__c.Handle_Icon__c</members>
+        <members>Social_Handle__c.Handle_Link__c</members>
+        <members>Trailhead_Superbadge__c.Contact__c</members>
+        <members>Trailhead_Superbadge__c.Favourite__c</members>
+        <members>Trailhead_Superbadge__c.Superbadge_Description__c</members>
+        <members>Trailhead_Superbadge__c.Superbadge_Image__c</members>
+        <members>Trailhead_Superbadge__c.Superbadge_Link__c</members>
+        <members>Work_Experience__c.Company__c</members>
+        <members>Work_Experience__c.Contact__c</members>
+        <members>Work_Experience__c.Duration__c</members>
+        <members>Work_Experience__c.Order__c</members>
+        <members>Work_Experience__c.Responsibilities__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Certification__c</members>
+        <members>Competency__c</members>
+        <members>Education__c</members>
+        <members>Key_Expertise__c</members>
+        <members>Reference__c</members>
+        <members>Social_Handle__c</members>
+        <members>Trailhead_Superbadge__c</members>
+        <members>Work_Experience__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>My_CV</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>CV_App</members>
+        <members>My_CV</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Certification__c-Certification Layout</members>
+        <members>Competency__c-Competency Layout</members>
+        <members>Contact-CV App</members>
+        <members>Education__c-Education Layout</members>
+        <members>Key_Expertise__c-Key Expertise Layout</members>
+        <members>Reference__c-Reference Layout</members>
+        <members>Social_Handle__c-Social Handle Layout</members>
+        <members>Trailhead_Superbadge__c-Trailhead Superbadge Layout</members>
+        <members>Work_Experience__c-Work Experience Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>award</members>
+        <members>error</members>
+        <members>progressCircle</members>
+        <members>resumeCertifications</members>
+        <members>resumeCompetencies</members>
+        <members>resumeContact</members>
+        <members>resumeEducations</members>
+        <members>resumeHeader</members>
+        <members>resumeKeyExpertises</members>
+        <members>resumeProfile</members>
+        <members>resumeReferences</members>
+        <members>resumeSocialHandles</members>
+        <members>resumeTHSuperbadges</members>
+        <members>resumeWorkExperiences</members>
+        <members>workExp</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>CV_App_Permissions</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>ChartJS</members>
+        <name>StaticResource</name>
+    </types>
+    <version>46.0</version>
+</Package>
