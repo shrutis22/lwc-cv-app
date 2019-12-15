@@ -9,7 +9,7 @@ This app let's you to create a fancy CV / Resume using rich **Lightning Web Comp
 
 
 ## 🙋‍♀️Why use this App ?
-You can build an interactive online version of your CV / Resume inside of Salesforce (a free Developer Edition org) and at the same time learn about Lightning Web Components too.
+You can build an interactive online version of your CV / Resume inside of Salesforce (*a free Developer Edition org*) and at the same time learn about Lightning Web Components too.
 
 You could also use **Force.com Sites** and **Lightning Out** to create a Public Web Version of your CV / Resume by using the same Lightning Web Components.
 
