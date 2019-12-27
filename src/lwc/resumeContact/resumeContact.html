@@ -40,6 +40,15 @@
         </lightning-card>
     </template>
 
+    <c-edit-basic-info
+        is-opened={openEditDialog}
+        record-id={recordId}
+        object-api-name="Contact"
+        fields={editableFields}
+        columns="2"
+        onmodalclose={handleModalClose}
+    ></c-edit-basic-info>
+
     <template if:true={status.hasError}>
         <c-error message={status.errorMessage}></c-error>
 
