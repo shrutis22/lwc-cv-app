@@ -1,16 +1,23 @@
 import { LightningElement, api, wire, track } from "lwc";
 import { getRecord } from "lightning/uiRecordApi";
-import { NavigationMixin } from "lightning/navigation";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { SAMPLE_DATA } from "./sampleData.js";
 import loadSampleData from "@salesforce/apex/ResumeAPI.loadSampleData";
 
-export default class ResumeHeader extends NavigationMixin(LightningElement) {
+import NAME from "@salesforce/schema/Contact.Name";
+import FIRST_NAME from "@salesforce/schema/Contact.FirstName";
+import LAST_NAME from "@salesforce/schema/Contact.LastName";
+import TITLE from "@salesforce/schema/Contact.Title";
+
+export default class ResumeHeader extends LightningElement {
     @api recordId;
     @api showActions;
     @track status;
 
     @track contact;
+    @track openEditDialog;
+
+    editableFields;
 
     constructor() {
         super();
@@ -20,50 +27,43 @@ export default class ResumeHeader extends NavigationMixin(LightningElement) {
             errorMessage: null,
             errorIs404: false
         };
+
+        this.openEditDialog = false;
+        this.editableFields = [FIRST_NAME, LAST_NAME, TITLE];
     }
 
-    @wire(
-        getRecord,
-        {
-            recordId: "$recordId",
-            fields: [
-                "Contact.Name",
-                "Contact.Title"
-            ]
-        }
-    )
-    queryContact( { error, data } ) {
-        if( !this.recordId ) {
+    @wire(getRecord, {
+        recordId: "$recordId",
+        fields: [NAME, TITLE]
+    })
+    queryContact({ error, data }) {
+        if (!this.recordId) {
             this.status = {
                 hasError: true,
                 errorMessage: "Please specify the Id of the Contact.",
                 errorIs404: true
             };
-        }        
-        else if( error ) {
+        } else if (error) {
             this.status = {
                 hasError: true,
-                errorMessage: error ? `${ error.status } | ${ error.statusText }` :
-                    "An unexpected error has occurred.",
-                    errorIs404: error ? error.status === 404 : false
+                errorMessage: error
+                    ? `${error.status} | ${error.statusText}`
+                    : "An unexpected error has occurred.",
+                errorIs404: error ? error.status === 404 : false
             };
-        }
-        else {
+        } else {
             this.contact = {
                 name: data.fields.Name.value,
                 title: data.fields.Title.value
             };
-            
-            if( !this.contact.name ||
-                !this.contact.title
-            ) {
+
+            if (!this.contact.name || !this.contact.title) {
                 this.status = {
                     hasError: true,
                     errorMessage: "Name / Title is missing.",
                     errorIs406: true
                 };
-            }
-            else {
+            } else {
                 this.status = {
                     hasError: false
                 };
@@ -72,55 +72,44 @@ export default class ResumeHeader extends NavigationMixin(LightningElement) {
     }
 
     handleEdit() {
-        this[NavigationMixin.Navigate](
-            {
-                type: "standard__recordPage",
-                attributes: {
-                    recordId: this.recordId,
-                    actionName: "edit"
-                }
-            }
-        );
+        this.openEditDialog = true;
+    }
+
+    handleModalClose() {
+        this.openEditDialog = false;
     }
 
     load() {
-        loadSampleData(
-            {
-                data: SAMPLE_DATA
-            }
-        ).then( ( result ) => {
-            if( result.isSuccess ) {
-                this.dispatchEvent(
-                    new ShowToastEvent(
-                        {
+        loadSampleData({
+            data: SAMPLE_DATA
+        })
+            .then(result => {
+                if (result.isSuccess) {
+                    this.dispatchEvent(
+                        new ShowToastEvent({
                             title: "Success",
                             message: result.message,
                             variant: "success"
-                        }
-                    )
-                );
-            }
-            else {
-                this.dispatchEvent(
-                    new ShowToastEvent(
-                        {
+                        })
+                    );
+                } else {
+                    this.dispatchEvent(
+                        new ShowToastEvent({
                             title: "Error",
                             message: result.message,
                             variant: "error"
-                        }
-                    )
-                );
-            }
-        } ).catch( ( error ) => {
-            this.dispatchEvent(
-                new ShowToastEvent(
-                    {
+                        })
+                    );
+                }
+            })
+            .catch(error => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
                         title: "Error",
                         message: error.message,
                         variant: "error"
-                    }
-                )
-            );
-        } );
+                    })
+                );
+            });
     }
 }
