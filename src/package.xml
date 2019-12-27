@@ -85,6 +85,7 @@
     </types>
     <types>
         <members>award</members>
+        <members>editBasicInfo</members>
         <members>error</members>
         <members>progressCircle</members>
         <members>resumeCertifications</members>
